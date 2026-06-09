@@ -12,7 +12,7 @@ public struct CircusView: View {
     public init() {}
 
     public var body: some View {
-        BackgroundWrapper { time, resolution in
+        ShaderWrapper { time, resolution in
             Rectangle()
                 .fill(color1)
                 .colorEffect(ShaderLibrary.bundle(.module).Circus(

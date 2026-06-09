@@ -3,18 +3,18 @@
 import SwiftUI
 
 /// Wraps `TimelineView` and freezes the timeline date when motion is reduced (accessibility or snapshots).
-struct BackgroundWrapper<Content: View>: View {
+public struct ShaderWrapper<Content: View>: View {
 
     @Environment(\.accessibilityReduceMotion) private var motionReduced
     @State private var startDate = Date()
 
     @ViewBuilder private let content: (Float, CGPoint) -> Content
 
-    init(@ViewBuilder content: @escaping (Float, CGPoint) -> Content) {
+    public init(@ViewBuilder content: @escaping (Float, CGPoint) -> Content) {
         self.content = content
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             let resolution = CGPoint(x: proxy.size.width, y: proxy.size.height)
             if resolution.x <= 0 || resolution.y <= 0 {
