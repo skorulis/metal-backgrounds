@@ -9,7 +9,7 @@ public struct FireNoiseView: View {
     public var body: some View {
         ShaderWrapper { time, resolution in
             Rectangle()
-                .fill(Color(red: 0.1, green: 0.1, blue: 0.1))
+                .fill(.black)
                 .colorEffect(ShaderLibrary.bundle(.module).FireNoise(
                     .float(time),
                     .float2(resolution)
